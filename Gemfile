@@ -11,7 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'grape'
 gem 'doorkeeper'
 gem 'grape-doorkeeper'
-gem 'active_model_serializers'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-9-stable'
 
 # assets
 gem 'sass-rails', '~> 5.0'
@@ -20,11 +20,12 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'slim-rails'
 gem 'jquery-rails'
 
+gem 'rails-assets-lodash'
 gem 'rails-assets-angular', '~> 1.2.0'
 gem 'rails-assets-angular-ui-router', '~> 0.2.9'
 gem 'rails-assets-angular-cache', '~> 2.3.7'
-
-
+gem 'rails-assets-angular-translate'
+gem 'angular-rails-templates'
 
 group :development, :test do
   gem 'byebug'
