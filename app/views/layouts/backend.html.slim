@@ -1,0 +1,13 @@
+doctype html
+html lang="pl" ng-app="backend"
+  head
+    meta charset="utf-8"
+    title Happy Meal
+    =stylesheet_link_tag "backend", media: "all"
+    =csrf_meta_tags
+
+  body
+    =yield
+
+    = javascript_include_tag 'backend'
+    = js_env
