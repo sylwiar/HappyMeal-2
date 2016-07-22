@@ -12,6 +12,7 @@ module API
 
       namespace :backend do
         mount API::V1::Backend::Orders
+        mount API::V1::Backend::Meals
       end
 
     end

@@ -6,9 +6,10 @@
 
 //= require ./shared/init
 
+//= require ./backend/init
+//= require ./backend/routes
 
 //= require_tree ./backend/services
 //= require_tree ./backend/controllers
 
-//= require ./backend/init
-//= require ./backend/routes
+//= require_tree ../templates/backend

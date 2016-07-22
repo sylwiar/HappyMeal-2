@@ -4,7 +4,9 @@ source 'https://rails-assets.org'
 #core
 gem 'rails', '4.2.5.1'
 gem 'sqlite3'
-gem 'jbuilder', '~> 2.0'
+gem 'puma'
+gem 'rspec_junit_formatter'
+
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # API
@@ -26,6 +28,8 @@ gem 'rails-assets-angular-ui-router', '~> 0.2.9'
 gem 'rails-assets-angular-cache', '~> 2.3.7'
 gem 'rails-assets-angular-translate'
 gem 'angular-rails-templates'
+gem 'rails-assets-angular-growl-2'
+gem 'rails-assets-angular-ui-tree'
 
 group :development, :test do
   gem 'byebug'

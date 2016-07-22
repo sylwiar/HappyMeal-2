@@ -1,0 +1,18 @@
+header.header.bg-black.navbar.navbar-inverse.pull-in
+  .navbar-header.nav-bar.aside.dk
+    a.btn.btn-link.visible-xs data-target=".nav-primary" data-toggle="class:show"
+      i.fa.fa-bars
+    a.nav-brand ui-sref='backend.orders'
+    a.btn.btn-link.visible-xs data-target=".navbar-collapse" data-toggle="collapse"
+    ul.nav.navbar-nav.navbar-right.hidden-xs.pos-rlt
+      .btn-group dropdown="" is-open="status.isopen" 
+        button.btn-sm.btn-margin.m-t-sm.m-r-sm.no-border.dk.text-white.dropdown-toggle dropdown-toggle="" ng-disabled="disabled" type="button"
+          strong Zalogowany &nbsp;
+          | {{current_admin.first_name}} {{current_admin.last_name}}
+          span.caret
+        ul.dropdown-menu.m-t-sm.m-r-sm role="menu" 
+          li
+            a ui-sref='backend.admins.show'  Profil
+          li.divider
+          li
+            a href="/admins/sign_out" Wyloguj

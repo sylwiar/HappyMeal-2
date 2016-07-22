@@ -2,7 +2,15 @@ angular.module('backend').config ($stateProvider, $urlRouterProvider) ->
 
   $urlRouterProvider.otherwise('/orders')
 
-  $stateProvider.state 'orders.index',
+  $stateProvider.state 'backend',
+    abstract: true
+    url: ''
+    templateUrl: 'backend/layout.html'
+
+  .state 'backend.orders',
     url: '/orders'
-    templateUrl: 'backend/orders/index.html'
-    controller: 'BackendOrdersIndexCtrl'
+    parent: 'backend'
+    views:
+      'mainView@backend':
+        templateUrl: 'backend/orders/list.html'
+        controller: 'BackendOrdersIndexCtrl'
