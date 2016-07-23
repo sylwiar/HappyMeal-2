@@ -11,6 +11,8 @@ module API
             requires 'meal', type: Hash do
               optional :name
               optional :price
+              optional :order_id
+              optional :user_id
             end
           end
           post '/' do
