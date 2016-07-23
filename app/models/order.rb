@@ -1,11 +1,12 @@
 class Order < ActiveRecord::Base
-  kinds = %w(Draft Finalized Ordered Delivered)
   validates :restaurant_name, presence: true
-  validates :status, inclusion: { in: kinds }
+  validates :status, presence: true
 
   has_many :meals
   has_many :users, through: :meals
 
-  scope :active, -> { where(status: 'Draft') }
-  scope :history, -> { where.not(status: 'Draft') }
+  ORDER_STATUSES = [Draft = 'active', Finalized = 'history'] 
+
+  # scope :active, -> { where(status: 'Draft') }
+  # scope :history, -> { where.not(status: 'Draft') }
 end

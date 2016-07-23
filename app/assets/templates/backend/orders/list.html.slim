@@ -1,7 +1,11 @@
 header.header.bg-white.b-b.clearfix.m-b-lg
   .m-t-sm
-    .pull-left
+    .text-center
       h3.m-t-none Orders
+      a.btn.btn-sm.btn-primary.btn-margin ui-sref="backend.orders.new"
+        i.fa.fa-plus
+        | &nbsp;
+        | New order
     .pull-right
     header.header.clearfix.m-b-md
       .m-t-sm
@@ -10,11 +14,8 @@ header.header.bg-white.b-b.clearfix.m-b-lg
             .form-group
               label.control-label Status:
             .form-group.m-r-sm
+              | {{ search.status }}
               select.form-control.input-sm ng-model="searchBase.status" ng-options="opt as opt.name for opt in statusOptions"
-      a.btn.btn-sm.btn-primary.btn-margin ui-sref="backend.orders.new"
-        i.fa.fa-plus
-        | &nbsp;
-        | New order
 .col-sm-12
   .panel
     table.table.table-striped.m-b-none ng-table="tableParams"
@@ -25,15 +26,15 @@ header.header.bg-white.b-b.clearfix.m-b-lg
           th Status
           th width="2%" Actions
       tbody
-        tr ng-repeat="order in orders | filter:searchParams():equalFn | filter:searchKey"
+        tr ng-repeat="order in orders | filter:searchParams():equalFn"
           td data-title="id" {{order.id}}
           td data-title="name" {{order.restaurant_name}}
-          td data-title="status" {{order.status == "Draft" ? Order.active : Order.history }}
+          td data-title="status" {{order.status == "active" ? "Active" : "History"}}
           td data-title="edit"
             a.btn.btn-info.btn-xs ui-sref="backend.orders.edit({ id: order.id })"
               | Edit
           td data-title="show"
             a.btn.btn-info.btn-xs href="#" ui-sref="backend.orders.show({ id: order.id })"
-              | Details
+              | Show
         tr ng-if='orders.length == 0'
           td colspan='3' There are no orders

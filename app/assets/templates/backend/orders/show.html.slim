@@ -9,7 +9,7 @@ header.header.bg-white.b-b.clearfix
       p
         strong Status: &nbsp;
         | {{order.status}}
-  tr ng-if='order.status == "Draft"'
+  tr ng-if='{{order.status}} == "Draft"'
     table.table.table-striped.m-b-none ng-table="tableParams"
       thead
         tr
@@ -43,6 +43,21 @@ header.header.bg-white.b-b.clearfix
                       input.form-control type="text" name="content" ng-model="meal.price" required=""
                       p ng-show="mealForm.content.$error.required && (!mealForm.content.$pristine || submitted)"
                         | This field is required
+                  .line.line-dashed.line-lg.pull-in
+                  .form-group
+                    label.col-lg-2.control-label Order id
+                    .col-lg-10
+                      input type="hidden" name="orderid" ng-model="meal.order.id" ng-init="meal.order.id =1 " value="{{meal.order.id}}"
+                      / input.form-control type="text" name="orderid"ng-model="meal.order.id" required=""
+                  .line.line-dashed.line-lg.pull-in
+                  .form-group
+                    label.col-lg-2.control-label User id
+                    .col-lg-10
+                      input type="hidden" name="userid" ng-model="meal.user.id" ng-init="meal.user.id =1 " value="{{meal.user.id}}"
+                      / input.form-control type="text" name="userid" ng-model="meal.user.id" required=""   
+                  td data-title="id" {{order.id}} order
+                  td data-title="user_id" {{current_user}} user
+                  
           footer.footer.bg-white.b-t.clearfix.m-t-lg
             .m-t-sm.m-b-lg
               .text-center

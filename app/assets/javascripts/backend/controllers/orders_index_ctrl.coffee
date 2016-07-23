@@ -5,12 +5,10 @@ angular.module('backend').controller 'BackendOrdersIndexCtrl', ($scope, BackendO
   $scope.statusOptions = [
     { name: 'Wszystkie', id: null },
     { name: 'Active', id: 'active' },
-    { name: 'History', id: 'history' }
+    { name: 'History', id: 'history' },
   ]
 
   $scope.equalFn = (a,b) ->
-    console.log a
-    console.log b
     return true if !b
     a == b
 
