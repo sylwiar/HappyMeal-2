@@ -3,5 +3,5 @@ angular.module('backend').controller 'BackendOrdersNewCtrl', ($scope, BackendOrd
   $scope.order = {}
 
   $scope.addOrder = ->
-    BackendOrder.create($scope.order).success ->
+    BackendOrder.create($scope.order).success (response) ->
       $state.go('backend.orders')

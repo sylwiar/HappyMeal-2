@@ -15,14 +15,6 @@ angular.module('backend').config ($stateProvider, $urlRouterProvider) ->
         templateUrl: 'backend/orders/list.html'
         controller: 'BackendOrdersIndexCtrl'
 
-  .state 'backend.orders.show',
-    url: '/orders/:id'
-    parent: 'backend'
-    views:
-      'mainView@backend':
-        templateUrl: 'backend/orders/show.html'
-        controller: 'BackendOrdersShowCtrl'
-
   .state 'backend.orders.new',
     url: '/orders/new'
     parent: 'backend'
@@ -30,6 +22,14 @@ angular.module('backend').config ($stateProvider, $urlRouterProvider) ->
       'mainView@backend':
         templateUrl: 'backend/orders/form.html'
         controller: 'BackendOrdersNewCtrl'
+
+  .state 'backend.orders.show',
+    url: '/orders/:id'
+    parent: 'backend'
+    views:
+      'mainView@backend':
+        templateUrl: 'backend/orders/show.html'
+        controller: 'BackendOrdersShowCtrl'
 
   .state 'backend.orders.edit',
     url: '/orders/:id/edit'

@@ -9,18 +9,18 @@ header.header.bg-white.b-b.clearfix
       p
         strong Status: &nbsp;
         | {{order.status}}
+  table.table.table-striped.m-b-none ng-table="tableParams"
+    thead
+      tr
+        th Name
+        th Price
+    tbody
+      tr ng-repeat="meal in meals"
+        td data-title="name" {{meal.name}}
+        td data-title="price" {{meal.price}}
+      tr ng-if='meals.length == 0'
+        td colspan='3' There are no meals
   tr ng-if='{{order.status}} == "Draft"'
-    table.table.table-striped.m-b-none ng-table="tableParams"
-      thead
-        tr
-          th Name
-          th Price
-      tbody
-        tr ng-repeat="meal in meals"
-          td data-title="name" {{meal.name}}
-          td data-title="price" {{meal.price}}
-        tr ng-if='meals.length == 0'
-          td colspan='3' There are no meals
     header.header.bg-white.b-b.clearfix
     .m-t-sm
       .pull-left
@@ -57,13 +57,13 @@ header.header.bg-white.b-b.clearfix
                       / input.form-control type="text" name="userid" ng-model="meal.user.id" required=""   
                   td data-title="id" {{order.id}} order
                   td data-title="user_id" {{current_user}} user
-                  
-          footer.footer.bg-white.b-t.clearfix.m-t-lg
-            .m-t-sm.m-b-lg
-              .text-center
-                a.btn.btn-sm.btn-primary.btn-margin.m-r-sm ng-click='addMeal(); $event.preventDefault(); submitted=true;'
-                  i.icon-save
-                  | Save
-                a.btn.btn-sm.btn-default.btn-margin ui-sref='backend.orders'
-                  i.icon-arrow-left
-                  | Back
+                    
+        footer.footer.bg-white.b-t.clearfix.m-t-lg
+          .m-t-sm.m-b-lg
+          .text-center
+            a.btn.btn-sm.btn-primary.btn-margin.m-r-sm ng-click='addMeal(); $event.preventDefault(); submitted=true;'
+              i.icon-save
+              | Save
+            a.btn.btn-sm.btn-default.btn-margin ui-sref='backend.orders'
+              i.icon-arrow-left
+              | Back

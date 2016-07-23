@@ -29,7 +29,7 @@ header.header.bg-white.b-b.clearfix.m-b-lg
         tr ng-repeat="order in orders | filter:searchParams():equalFn"
           td data-title="id" {{order.id}}
           td data-title="name" {{order.restaurant_name}}
-          td data-title="status" {{order.status == "active" ? "Active" : "History"}}
+          td data-title="status" {{order.status}}
           td data-title="edit"
             a.btn.btn-info.btn-xs ui-sref="backend.orders.edit({ id: order.id })"
               | Edit

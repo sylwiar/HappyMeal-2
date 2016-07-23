@@ -3,7 +3,7 @@ angular.module('backend').controller 'BackendOrdersIndexCtrl', ($scope, BackendO
 
   $scope.searchBase = {}
   $scope.statusOptions = [
-    { name: 'Wszystkie', id: null },
+    { name: 'All', id: null },
     { name: 'Active', id: 'active' },
     { name: 'History', id: 'history' },
   ]
