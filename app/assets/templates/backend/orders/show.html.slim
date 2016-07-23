@@ -18,52 +18,7 @@ header.header.bg-white.b-b.clearfix
       tr ng-repeat="meal in meals"
         td data-title="name" {{meal.name}}
         td data-title="price" {{meal.price}}
-      tr ng-if='meals.length == 0'
-        td colspan='3' There are no meals
-  tr ng-if='{{order.status}} == "Draft"'
-    header.header.bg-white.b-b.clearfix
-    .m-t-sm
-      .pull-left
-        h3.m-t-none Add meal
-        section.clearfix
-          .col-sm-12.m-t-lg
-            section.panel
-              .panel-body
-                form.form-horizontal name="mealForm" ng-submit="submitForm(orderForm.$valid)" novalidate=""
-                  .form-group
-                    label.col-lg-2.control-label Name
-                    .col-lg-10
-                      input.form-control type="text" name="name" ng-model="meal.name" required=""
-                      p ng-show="mealForm.name.$error.required && (!mealForm.name.$pristine || submitted)"
-                        | This field is required
-                  .line.line-dashed.line-lg.pull-in
-                  .form-group
-                    label.col-lg-2.control-label Price
-                    .col-lg-10
-                      input.form-control type="text" name="content" ng-model="meal.price" required=""
-                      p ng-show="mealForm.content.$error.required && (!mealForm.content.$pristine || submitted)"
-                        | This field is required
-                  .line.line-dashed.line-lg.pull-in
-                  .form-group
-                    label.col-lg-2.control-label Order id
-                    .col-lg-10
-                      input type="hidden" name="orderid" ng-model="meal.order.id" ng-init="meal.order.id =1 " value="{{meal.order.id}}"
-                      / input.form-control type="text" name="orderid"ng-model="meal.order.id" required=""
-                  .line.line-dashed.line-lg.pull-in
-                  .form-group
-                    label.col-lg-2.control-label User id
-                    .col-lg-10
-                      input type="hidden" name="userid" ng-model="meal.user.id" ng-init="meal.user.id =1 " value="{{meal.user.id}}"
-                      / input.form-control type="text" name="userid" ng-model="meal.user.id" required=""   
-                  td data-title="id" {{order.id}} order
-                  td data-title="user_id" {{current_user}} user
-                    
-        footer.footer.bg-white.b-t.clearfix.m-t-lg
-          .m-t-sm.m-b-lg
-          .text-center
-            a.btn.btn-sm.btn-primary.btn-margin.m-r-sm ng-click='addMeal(); $event.preventDefault(); submitted=true;'
-              i.icon-save
-              | Save
-            a.btn.btn-sm.btn-default.btn-margin ui-sref='backend.orders'
-              i.icon-arrow-left
-              | Back
+      tr ng-if='!meals.length'
+        td colspan='2' There are no meals
+  tr ng-if=='{{order.status}} == "Draft"' 
+    ng-include src='"backend/orders/form2.html"'

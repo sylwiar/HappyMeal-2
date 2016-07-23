@@ -6,7 +6,7 @@ module API
 
         resource :meals do
 
-          desc "Creates a new meal."
+          desc "Create a new meal."
           params do
             requires 'meal', type: Hash do
               optional :name

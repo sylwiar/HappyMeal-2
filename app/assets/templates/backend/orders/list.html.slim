@@ -16,6 +16,10 @@ header.header.bg-white.b-b.clearfix.m-b-lg
             .form-group.m-r-sm
               | {{ search.status }}
               select.form-control.input-sm ng-model="searchBase.status" ng-options="opt as opt.name for opt in statusOptions"
+            .form-group
+              label.control-label Search:
+            .form-group.m-r-sm
+              input.form-control.input-sm ng-model="searchKey" placeholder=""
 .col-sm-12
   .panel
     table.table.table-striped.m-b-none ng-table="tableParams"
@@ -26,7 +30,7 @@ header.header.bg-white.b-b.clearfix.m-b-lg
           th Status
           th width="2%" Actions
       tbody
-        tr ng-repeat="order in orders | filter:searchParams():equalFn"
+        tr ng-repeat="order in orders | filter:searchParams():equalFn | filter:searchKey"
           td data-title="id" {{order.id}}
           td data-title="name" {{order.restaurant_name}}
           td data-title="status" {{order.status}}
@@ -36,5 +40,5 @@ header.header.bg-white.b-b.clearfix.m-b-lg
           td data-title="show"
             a.btn.btn-info.btn-xs href="#" ui-sref="backend.orders.show({ id: order.id })"
               | Show
-        tr ng-if='orders.length == 0'
+        tr ng-if='!orders.length'
           td colspan='3' There are no orders

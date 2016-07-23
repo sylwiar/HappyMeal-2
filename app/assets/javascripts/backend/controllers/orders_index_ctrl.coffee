@@ -3,9 +3,8 @@ angular.module('backend').controller 'BackendOrdersIndexCtrl', ($scope, BackendO
 
   $scope.searchBase = {}
   $scope.statusOptions = [
-    { name: 'All', id: null },
-    { name: 'Active', id: 'active' },
-    { name: 'History', id: 'history' },
+    { name: 'Active', id: null },
+    { name: 'History', id: 'history' }
   ]
 
   $scope.equalFn = (a,b) ->
