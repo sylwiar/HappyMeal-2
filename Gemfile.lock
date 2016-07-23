@@ -150,7 +150,10 @@ GEM
       rails-assets-angular (>= 1.0.8, < 2)
     rails-assets-angular-ui-tree (2.2.0)
       rails-assets-angular (>= 1.2.0)
+    rails-assets-bootstrap-ui (0.12.1)
     rails-assets-lodash (4.13.1)
+    rails-assets-ng-table (0.5.4)
+      rails-assets-angular (~> 1)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -253,7 +256,9 @@ DEPENDENCIES
   rails-assets-angular-translate
   rails-assets-angular-ui-router (~> 0.2.9)
   rails-assets-angular-ui-tree
+  rails-assets-bootstrap-ui
   rails-assets-lodash
+  rails-assets-ng-table
   rspec-rails (~> 3.4)
   rspec_junit_formatter
   sass-rails (~> 5.0)

@@ -1,0 +1,37 @@
+header.header.bg-white.b-b.clearfix
+  .m-t-sm
+    .pull-left
+      h3.m-t-none Order
+    .pull-right
+      a.btn.btn-sm.btn-default.btn-margin ui-sref='backend.orders'
+        i.icon-arrow-left
+        | Back
+section.clearfix
+  .col-sm-12.m-t-lg
+    section.panel
+      .panel-body
+        form.form-horizontal name="orderForm" ng-submit="submitForm(orderForm.$valid)" novalidate=""
+          .form-group
+            label.col-lg-2.control-label Restaurant name
+            .col-lg-10
+              input.form-control type="text" name="name" ng-model="order.restaurant_name" required=""
+              p ng-show="orderForm.name.$error.required && (!orderForm.name.$pristine || submitted)"
+                | This field is required
+          .line.line-dashed.line-lg.pull-in
+          .form-group
+            label.col-lg-2.control-label Status
+            .col-lg-10
+              select.form-control.m-b name="status" ng-model="order.status"
+                option Draft
+                option Finalized
+                option Ordered
+                option Delivered
+  footer.footer.bg-white.b-t.clearfix.m-t-lg
+    .m-t-sm.m-b-lg
+      .text-center
+        a.btn.btn-sm.btn-primary.btn-margin.m-r-sm ng-click='addOrder(); $event.preventDefault(); submitted=true;'
+          i.icon-save
+          | Save
+        a.btn.btn-sm.btn-default.btn-margin ui-sref='backend.orders'
+          i.icon-arrow-left
+          | Back

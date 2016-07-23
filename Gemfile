@@ -30,6 +30,8 @@ gem 'rails-assets-angular-translate'
 gem 'angular-rails-templates'
 gem 'rails-assets-angular-growl-2'
 gem 'rails-assets-angular-ui-tree'
+gem 'rails-assets-ng-table'
+gem 'rails-assets-bootstrap-ui'
 
 group :development, :test do
   gem 'byebug'

@@ -22,4 +22,19 @@ describe API::V1::Backend::Orders do
     end
   end
 
+  describe 'post /api/v1/backend/orders' do
+    it 'should create new order' do
+      attrs = FactoryGirl.attributes_for(:order)
+      post "/api/v1/backend/orders", order: attrs
+      expect(response.status).to eq(201)
+    end
+
+    it 'should not create new order with wrong params' do
+      attrs = FactoryGirl.attributes_for(:order)
+      attrs[:restaurant_name] = nil
+      post "/api/v1/backend/orders", order: attrs
+      expect(response.status).not_to eq(201)
+    end
+  end
+
 end

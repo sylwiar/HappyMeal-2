@@ -1,0 +1,54 @@
+header.header.bg-white.b-b.clearfix
+  .m-t-sm
+    .pull-left
+      h3.m-t-none Order {{order.id}}
+      .line.line-dashed.line-lg.pull-in
+      p
+        strong Restaurant name: &nbsp;
+        | {{order.restaurant_name}}
+      p
+        strong Status: &nbsp;
+        | {{order.status}}
+  tr ng-if='order.status == "Draft"'
+    table.table.table-striped.m-b-none ng-table="tableParams"
+      thead
+        tr
+          th Name
+          th Price
+      tbody
+        tr ng-repeat="meal in meals"
+          td data-title="name" {{meal.name}}
+          td data-title="price" {{meal.price}}
+        tr ng-if='meals.length == 0'
+          td colspan='3' There are no meals
+    header.header.bg-white.b-b.clearfix
+    .m-t-sm
+      .pull-left
+        h3.m-t-none Add meal
+        section.clearfix
+          .col-sm-12.m-t-lg
+            section.panel
+              .panel-body
+                form.form-horizontal name="mealForm" ng-submit="submitForm(orderForm.$valid)" novalidate=""
+                  .form-group
+                    label.col-lg-2.control-label Name
+                    .col-lg-10
+                      input.form-control type="text" name="name" ng-model="meal.name" required=""
+                      p ng-show="mealForm.name.$error.required && (!mealForm.name.$pristine || submitted)"
+                        | This field is required
+                  .line.line-dashed.line-lg.pull-in
+                  .form-group
+                    label.col-lg-2.control-label Price
+                    .col-lg-10
+                      input.form-control type="text" name="content" ng-model="meal.price" required=""
+                      p ng-show="mealForm.content.$error.required && (!mealForm.content.$pristine || submitted)"
+                        | This field is required
+          footer.footer.bg-white.b-t.clearfix.m-t-lg
+            .m-t-sm.m-b-lg
+              .text-center
+                a.btn.btn-sm.btn-primary.btn-margin.m-r-sm ng-click='addMeal(); $event.preventDefault(); submitted=true;'
+                  i.icon-save
+                  | Save
+                a.btn.btn-sm.btn-default.btn-margin ui-sref='backend.orders'
+                  i.icon-arrow-left
+                  | Back

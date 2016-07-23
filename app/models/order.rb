@@ -5,4 +5,7 @@ class Order < ActiveRecord::Base
 
   has_many :meals
   has_many :users, through: :meals
+
+  scope :active, -> { where(status: 'Draft') }
+  scope :history, -> { where.not(status: 'Draft') }
 end

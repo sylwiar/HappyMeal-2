@@ -1,5 +1,39 @@
-header.header.bg-white.b-b.clearfix
+header.header.bg-white.b-b.clearfix.m-b-lg
   .m-t-sm
     .pull-left
       h3.m-t-none Orders
     .pull-right
+    header.header.clearfix.m-b-md
+      .m-t-sm
+        .pull-right
+          .form-inline
+            .form-group
+              label.control-label Status:
+            .form-group.m-r-sm
+              select.form-control.input-sm ng-model="searchBase.status" ng-options="opt as opt.name for opt in statusOptions"
+      a.btn.btn-sm.btn-primary.btn-margin ui-sref="backend.orders.new"
+        i.fa.fa-plus
+        | &nbsp;
+        | New order
+.col-sm-12
+  .panel
+    table.table.table-striped.m-b-none ng-table="tableParams"
+      thead
+        tr
+          th ID
+          th Restaurant name
+          th Status
+          th width="2%" Actions
+      tbody
+        tr ng-repeat="order in orders | filter:searchParams():equalFn | filter:searchKey"
+          td data-title="id" {{order.id}}
+          td data-title="name" {{order.restaurant_name}}
+          td data-title="status" {{order.status == "Draft" ? Order.active : Order.history }}
+          td data-title="edit"
+            a.btn.btn-info.btn-xs ui-sref="backend.orders.edit({ id: order.id })"
+              | Edit
+          td data-title="show"
+            a.btn.btn-info.btn-xs href="#" ui-sref="backend.orders.show({ id: order.id })"
+              | Details
+        tr ng-if='orders.length == 0'
+          td colspan='3' There are no orders

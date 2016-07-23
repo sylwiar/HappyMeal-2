@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+orders = Order.create({restaurant_name: 'nowa', status: 'Draft'})
+orders = Order.create({restaurant_name: 'inna', status: 'Finalized'})
