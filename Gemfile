@@ -35,6 +35,7 @@ gem 'rails-assets-bootstrap-ui'
 
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'byebug'
