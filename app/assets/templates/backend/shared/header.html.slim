@@ -1,4 +1,4 @@
-header.header.bg-black.navbar.navbar-inverse.pull-in
+header.header.navbar.pull-in
   nav.navbar.navbar-fixed-top.navbar-color
     .container
       .navbar-header
@@ -7,14 +7,11 @@ header.header.bg-black.navbar.navbar-inverse.pull-in
         ul.nav.navbar-nav
         #navbar-collapse.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
-            - if true
-              h5
-                a.desc href="#" Log out
-                a href="/auth/github/" Log in with Github
-                a href="/auth/facebook/" Log in with Facebook
-            -else
-              li
-                li
-                  a href="/auth/facebook/" Log in with Facebook
-                li
-                  a href="/auth/github/" Log in with Github
+            h5
+              li ng-show="logged_in?" 
+                a.desc href="/logout" Log out 
+              li ng-show="!logged_in?"
+                li 
+                  a ng-href="/auth/facebook/" Log in with Facebook
+                li 
+                  a ng-href="/auth/github/" Log in with Github

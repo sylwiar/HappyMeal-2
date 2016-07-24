@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   root :to => 'backend/home#index'
 
   get "/auth/:provider/callback" => "sessions#create"
-  get "/signout" => "sessions#destroy", :as => :signout
+  get "/logout" => "sessions#destroy"
 
 end
