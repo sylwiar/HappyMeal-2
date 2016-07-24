@@ -11,25 +11,24 @@
                 .form-group
                   label.col-lg-2.control-label Name
                   .col-lg-10
-                    input.form-control type="text" name="name" ng-model="meal.name" required=""
+                    input.form-control type="text" name="name" ng-model="mealname" required=""
                     p ng-show="mealForm.name.$error.required && (!mealForm.name.$pristine || submitted)"
                       | This field is required
                 .line.line-dashed.line-lg.pull-in
                 .form-group
                   label.col-lg-2.control-label Price
                   .col-lg-10
-                    input.form-control type="text" name="content" ng-model="meal.price" required=""
+                    input.form-control type="text" name="content" ng-model="mealprice" required=""
                     p ng-show="mealForm.content.$error.required && (!mealForm.content.$pristine || submitted)"
                       | This field is required
                 .line.line-dashed.line-lg.pull-in
                 .form-group
                   .col-lg-10
-                    input type="hidden" name="orderid" ng-model="meal.order.id" ng-init="meal.order.id =1 " value="{{meal.order.id}}"
+                    input type="hidden" name="orderid" ng-model="meal.order.id" value="{{order.id}}"
                 .line.line-dashed.line-lg.pull-in
                 .form-group
                   .col-lg-10
-                    input type="hidden" name="userid" ng-model="current_user.id" ng-init="current_user.id =1 " value="{{current_user.id}}"
-                    / input.form-control type="text" name="userid" ng-model="meal.user.id" required=""   
+                    input type="hidden" name="userid" ng-model="current_user.id" ng-init="current_user.id =1 " value="{{current_user.id}}"   
                 td data-title="order_id" {{order.id}} order
                 td data-title="user_id" {{current_user.id}} user
                       

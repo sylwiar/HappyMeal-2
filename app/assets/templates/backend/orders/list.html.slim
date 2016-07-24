@@ -14,8 +14,8 @@ header.header.bg-white.b-b.clearfix.m-b-lg
             .form-group
               label.control-label Status:
             .form-group.m-r-sm
-              | {{ search.status }}
-              select.form-control.input-sm ng-model="searchBase.status" ng-options="opt as opt.name for opt in statusOptions"
+              | {{ search.active_status }}
+              select.form-control.input-sm ng-model="searchBase.active_status" ng-options="opt as opt.name for opt in active_statusOptions"
             .form-group
               label.control-label Search:
             .form-group.m-r-sm
@@ -28,12 +28,14 @@ header.header.bg-white.b-b.clearfix.m-b-lg
           th ID
           th Restaurant name
           th Status
+          th Active status 
           th width="2%" Actions
       tbody
         tr ng-repeat="order in orders | filter:searchParams():equalFn | filter:searchKey"
           td data-title="id" {{order.id}}
           td data-title="name" {{order.restaurant_name}}
           td data-title="status" {{order.status}}
+          td data-title="active_status" {{order.active_status = order.status == 'Draft' ? 'Active' : 'History'}}
           td data-title="edit"
             a.btn.btn-info.btn-xs ui-sref="backend.orders.edit({ id: order.id })"
               | Edit

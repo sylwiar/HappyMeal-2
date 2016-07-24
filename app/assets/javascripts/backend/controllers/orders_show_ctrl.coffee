@@ -4,8 +4,16 @@ angular.module('backend').controller 'BackendOrdersShowCtrl', ($scope, BackendOr
   BackendOrder.find($stateParams.id).success (response) ->
     $scope.order = response.order
 
-  $scope.meal = {}
+
+  $scope.meals = [(name: "Milk", price: 2), (name: "Bread", price: 2)];
 
   $scope.addMeal = ->
-    BackendMeal.create($scope.meal).success ->
-      $state.go('backend.orders.show')
+    $scope.meals.push
+    return
+
+  # $scope.addMeal = ->
+  #   BackendMeal.create($scope.meal).success (response) ->
+  #     $state.go('backend.orders')
+
+  # $scope.addMeal = ->
+  #   $scope.meals.push({name:$scope.mealname, price:$scope.mealprice})

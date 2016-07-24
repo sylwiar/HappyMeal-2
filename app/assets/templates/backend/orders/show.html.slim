@@ -20,5 +20,5 @@ header.header.bg-white.b-b.clearfix
         td data-title="price" {{meal.price}}
       tr ng-if='!meals.length'
         td colspan='2' There are no meals
-  tr ng-if=='{{order.status}} == "Draft"' 
+  tr ng-if='{{order.status}} == "Draft"' 
     ng-include src='"backend/orders/form2.html"'

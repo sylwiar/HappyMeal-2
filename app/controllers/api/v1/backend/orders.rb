@@ -9,7 +9,7 @@ module API
           desc "Return all orders"
           get '/' do
             ActiveModel::ArraySerializer.new(
-              @orders = params[:type] == "history" ? Order.history : Order.active,
+              Order.all,
               each_serializer: ::Backend::OrderSerializer
               )
           end
@@ -28,6 +28,7 @@ module API
             requires 'order', type: Hash do
               optional :restaurant_name
               optional :status
+              optional :active_status
             end
           end
           post '/' do
@@ -44,6 +45,7 @@ module API
             requires 'order', type: Hash do
               optional :restaurant_name
               optional :status
+              optional :active_status
             end
           end
           patch '/:id' do

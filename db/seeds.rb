@@ -9,3 +9,4 @@
 orders = Order.create({restaurant_name: 'nowa', status: 'Draft'})
 orders = Order.create({restaurant_name: 'inna', status: 'Finalized'})
 users = User.create({name: 'Adam Kowalski'})
+meals = Meal.create({name: "ramen", price: 2, order_id: 4, user_id: 1})
