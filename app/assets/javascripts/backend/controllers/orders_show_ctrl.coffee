@@ -5,7 +5,7 @@ angular.module('backend').controller 'BackendOrdersShowCtrl', ($scope, BackendOr
     $scope.order = response.order
 
 
-  $scope.meals = [(name: "Milk", price: 2), (name: "Bread", price: 2)];
+  # $scope.meals = [(name: "Milk", price: 2)]
 
   $scope.addMeal = ->
     $scope.meals.push

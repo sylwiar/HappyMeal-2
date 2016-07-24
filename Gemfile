@@ -33,6 +33,9 @@ gem 'rails-assets-angular-ui-tree'
 gem 'rails-assets-ng-table'
 gem 'rails-assets-bootstrap-ui'
 
+gem 'omniauth'
+gem 'omniauth-github'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.4'

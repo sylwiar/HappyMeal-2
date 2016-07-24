@@ -1,14 +1,15 @@
 header.header.bg-white.b-b.clearfix
   .m-t-sm
     .pull-left
-      h3.m-t-none Order {{order.id}}
-      .line.line-dashed.line-lg.pull-in
-      p
-        strong Restaurant name: &nbsp;
-        | {{order.restaurant_name}}
-      p
-        strong Status: &nbsp;
-        | {{order.status}}
+      .col-md-offset-1
+        h3.m-t-none Order {{order.id}}
+        .line.line-dashed.line-lg.pull-in
+        p
+          strong Restaurant name: &nbsp;
+          | {{order.restaurant_name}}
+        p
+          strong Status: &nbsp;
+          | {{order.status}}
     .pull-right
       a.btn.btn-sm.btn-default.btn-margin ui-sref='backend.orders'
         i.icon-arrow-left
@@ -24,5 +25,5 @@ header.header.bg-white.b-b.clearfix
         td data-title="price" {{meal.price}}
       tr ng-if='!meals.length'
         td colspan='2' There are no meals
-  p ng-show='order.status == "Draft"'
+  p ng-show='order.status == "Draft" && !meals.length'
     ng-include src='"backend/orders/form2.html"'
