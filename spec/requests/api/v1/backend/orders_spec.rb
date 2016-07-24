@@ -37,4 +37,15 @@ describe API::V1::Backend::Orders do
     end
   end
 
+  describe 'patch /api/v1/backend/orders/:id' do
+    it 'should update order' do
+      order = FactoryGirl.create(:order)
+      attrs = FactoryGirl.attributes_for(:order)
+      attrs[:restaurant_name] = "new"
+      patch "/api/v1/backend/orders/#{order.id}", order: attrs
+      json = JSON.parse(response.body)
+      expect(json["order"]["restaurant_name"]).to eq("new")
+    end
+  end
+
 end
