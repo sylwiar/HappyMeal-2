@@ -169,8 +169,6 @@ GEM
       rails-assets-angular (>= 1.2.26, < 1.6)
     rails-assets-angular-ui-router (0.2.18)
       rails-assets-angular (>= 1.0.8, < 2)
-    rails-assets-angular-ui-tree (2.2.0)
-      rails-assets-angular (>= 1.2.0)
     rails-assets-bootstrap-ui (0.12.1)
     rails-assets-lodash (4.13.1)
     rails-assets-ng-table (0.5.4)
@@ -279,7 +277,6 @@ DEPENDENCIES
   rails-assets-angular-growl-2
   rails-assets-angular-translate
   rails-assets-angular-ui-router (~> 0.2.9)
-  rails-assets-angular-ui-tree
   rails-assets-bootstrap-ui
   rails-assets-lodash
   rails-assets-ng-table

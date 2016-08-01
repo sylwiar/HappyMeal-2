@@ -2,8 +2,9 @@
 Meal ordering coordination system
 Rails/Angular SPA
 
-* Authorization via Facebook or Github account (not every person has Facebook account ;)) in progress
+* Authorization via Facebook or Github account (not every person has Facebook account ;)) 
+* Securing an API - in progress
 * Creating new order
 * Changing status of order
 * Listing orders by active and history status
-* Adding meal to order (after showing order) in progress
+* Adding meal to order (after showing order) - in progress
